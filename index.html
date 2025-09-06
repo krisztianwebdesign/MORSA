@@ -580,12 +580,25 @@
     });
   </script>
 
- <!-- Netlify form registration (hidden) -->
-<form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name">
-  <input type="email" name="email">
+<!-- Netlify: register the booking form at build time -->
+<form name="booking"
+      netlify
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden>
+  <input type="hidden" name="form-name" value="booking">
+  <input type="text"   name="name">
+  <input type="email"  name="email">
+  <input type="tel"    name="phone">
+  <input type="number" name="party">
+  <input type="date"   name="date">
+  <input type="text"   name="time">
+  <input type="text"   name="occasion">
   <textarea name="notes"></textarea>
+  <input type="checkbox" name="agree">
+  <input name="bot-field">
 </form>
+
  
 </body>
 </html>
