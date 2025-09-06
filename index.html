@@ -53,7 +53,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- If you self-host fonts later, remove the preconnects above -->
 
-<!-- ====== SITEMAP (optional but nice) ====== -->
+<!-- ====== SITEMAP ====== -->
 <link rel="sitemap" type="application/xml" title="Sitemap" href="https://YOUR_DOMAIN/sitemap.xml" />
 
 <!-- ====== STRUCTURED DATA: LocalBusiness (Cafe/Bakery) ====== -->
@@ -386,54 +386,138 @@
         <div class="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-800 px-4 py-2 text-sm">✅ Booking request sent! We’ll email a confirmation shortly.</div>
       </template>
 
-      <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" @submit="$store.booking.submit($event)">
-        <div><label class="block text-sm font-medium text-[#6B705C]">Full Name *</label>
-          <input id="booking-name" type="text" x-model="$store.booking.form.name" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
-        </div>
-        <div><label class="block text-sm font-medium text-[#6B705C]">Email *</label>
-          <input type="email" x-model="$store.booking.form.email" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
-        </div>
-        <div><label class="block text-sm font-medium text-[#6B705C]">Phone</label>
-          <input type="tel" x-model="$store.booking.form.phone" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
-        </div>
-        <div><label class="block text-sm font-medium text-[#6B705C]">Party Size *</label>
-          <input type="number" min="1" max="12" x-model.number="$store.booking.form.party" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
-          <p class="text-xs text-gray-500 mt-1">For 13+, please email or call.</p>
-        </div>
-        <div><label class="block text-sm font-medium text-[#6B705C]">Date *</label>
-          <input type="date" :min="$store.booking.todayStr()" x-model="$store.booking.form.date" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
-        </div>
-        <div><label class="block text-sm font-medium text-[#6B705C]">Time *</label>
-          <select x-model="$store.booking.form.time" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
-            <option value="" disabled>Select…</option>
-            <template x-for="h in Array.from({length:13},(_,i)=>i+9)">
-              <optgroup :label="(h<10?'0':'')+h+':00 - '+(h+1<10?'0':'')+(h+1)+':00'">
-                <option :value="(h<10?'0':'')+h+':00'" x-text="(h<10?'0':'')+h+':00'"></option>
-                <option :value="(h<10?'0':'')+h+':30'" x-text="(h<10?'0':'')+h+':30'"></option>
-              </optgroup>
-            </template>
-          </select>
-        </div>
-        <div><label class="block text-sm font-medium text-[#6B705C]">Occasion</label>
-          <select x-model="$store.booking.form.occasion" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
-            <option value="">None</option><option>Birthday</option><option>Anniversary</option><option>Business</option><option>Other</option>
-          </select>
-        </div>
-        <div class="md:col-span-2"><label class="block text-sm font-medium text-[#6B705C]">Notes / Allergens</label>
-          <textarea rows="4" x-model="$store.booking.form.notes" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40" placeholder="High chair? Wheelchair access? Allergens?"></textarea>
-        </div>
-        <div class="md:col-span-2 flex items-start gap-2">
-          <input id="booking-consent" type="checkbox" x-model="$store.booking.form.agree" class="mt-1" required>
-          <label for="booking-consent" class="text-xs text-gray-600">I agree to be contacted about my booking. See our <a href="./privacy.html" class="underline underline-offset-2 text-[#6B705C]">Privacy Policy</a>.</label>
-        </div>
-        <div class="md:col-span-2 mt-2 flex items-center gap-3">
-          <button type="submit" class="inline-flex items-center rounded-full px-6 py-3 bg-[#6B705C] text-white shadow hover:brightness-110 transition disabled:opacity-60" :disabled="$store.booking.loading">
-            <span x-show="!$store.booking.loading">Submit Booking</span>
-            <span x-show="$store.booking.loading">Sending…</span>
-          </button>
-          <button type="button" class="text-sm underline underline-offset-4 text-gray-600 hover:text-gray-800" @click="$store.booking.reset()">Reset form</button>
-        </div>
-      </form>
+     <form name="booking"
+      method="POST"
+      action="/thanks.html"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+  <!-- Netlify hidden fields -->
+  <input type="hidden" name="form-name" value="booking">
+  <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+  <!-- Full Name -->
+  <div>
+    <label class="block text-sm font-medium text-[#6B705C]">Full Name *</label>
+    <input id="booking-name"
+           type="text"
+           name="name"
+           x-model="$store.booking.form.name"
+           required
+           class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label class="block text-sm font-medium text-[#6B705C]">Email *</label>
+    <input type="email"
+           name="email"
+           x-model="$store.booking.form.email"
+           required
+           class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+  </div>
+
+  <!-- Phone -->
+  <div>
+    <label class="block text-sm font-medium text-[#6B705C]">Phone</label>
+    <input type="tel"
+           name="phone"
+           x-model="$store.booking.form.phone"
+           class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+  </div>
+
+  <!-- Party Size -->
+  <div>
+    <label class="block text-sm font-medium text-[#6B705C]">Party Size *</label>
+    <input type="number"
+           name="party"
+           min="1" max="12"
+           x-model.number="$store.booking.form.party"
+           required
+           class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+    <p class="text-xs text-gray-500 mt-1">For 13+, please email or call.</p>
+  </div>
+
+  <!-- Date -->
+  <div>
+    <label class="block text-sm font-medium text-[#6B705C]">Date *</label>
+    <input type="date"
+           name="date"
+           :min="$store.booking.todayStr()"
+           x-model="$store.booking.form.date"
+           required
+           class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+  </div>
+
+  <!-- Time -->
+  <div>
+    <label class="block text-sm font-medium text-[#6B705C]">Time *</label>
+    <select name="time"
+            x-model="$store.booking.form.time"
+            required
+            class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+      <option value="" disabled>Select…</option>
+      <template x-for="h in Array.from({length:13},(_,i)=>i+9)">
+        <optgroup :label="(h<10?'0':'')+h+':00 - '+(h+1<10?'0':'')+(h+1)+':00'">
+          <option :value="(h<10?'0':'')+h+':00'" x-text="(h<10?'0':'')+h+':00'"></option>
+          <option :value="(h<10?'0':'')+h+':30'" x-text="(h<10?'0':'')+h+':30'"></option>
+        </optgroup>
+      </template>
+    </select>
+  </div>
+
+  <!-- Occasion -->
+  <div>
+    <label class="block text-sm font-medium text-[#6B705C]">Occasion</label>
+    <select name="occasion"
+            x-model="$store.booking.form.occasion"
+            class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+      <option value="">None</option>
+      <option>Birthday</option>
+      <option>Anniversary</option>
+      <option>Business</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+  <!-- Notes -->
+  <div class="md:col-span-2">
+    <label class="block text-sm font-medium text-[#6B705C]">Notes / Allergens</label>
+    <textarea name="notes"
+              rows="4"
+              x-model="$store.booking.form.notes"
+              class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40"
+              placeholder="High chair? Wheelchair access? Allergens?"></textarea>
+  </div>
+
+  <!-- Consent -->
+  <div class="md:col-span-2 flex items-start gap-2">
+    <input id="booking-consent"
+           type="checkbox"
+           name="agree"
+           x-model="$store.booking.form.agree"
+           class="mt-1"
+           required>
+    <label for="booking-consent" class="text-xs text-gray-600">
+      I agree to be contacted about my booking. See our
+      <a href="./privacy.html" class="underline underline-offset-2 text-[#6B705C]">Privacy Policy</a>.
+    </label>
+  </div>
+
+  <!-- Submit -->
+  <div class="md:col-span-2 mt-2 flex items-center gap-3">
+    <button type="submit"
+            class="inline-flex items-center rounded-full px-6 py-3 bg-[#6B705C] text-white shadow hover:brightness-110 transition disabled:opacity-60">
+      Submit Booking
+    </button>
+    <button type="button"
+            class="text-sm underline underline-offset-4 text-gray-600 hover:text-gray-800"
+            @click="$store.booking.reset()">
+      Reset form
+    </button>
+  </div>
+</form>
 
       <p class="mt-4 text-xs text-gray-500">By submitting, you’re making a booking request. We’ll confirm by email as soon as we can.</p>
     </div>
