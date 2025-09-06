@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ====== CORE SEO (About) ====== -->
+<title>About Morsa — Our Story in Leith, Edinburgh</title>
+<meta name="description" content="Learn how Morsa began: slow-fermented focaccia, locally roasted espresso, and a community-first bakery & coffee shop rooted in Leith, Edinburgh." />
+<link rel="canonical" href="https://YOUR_DOMAIN/about.html" />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+<!-- ====== OPEN GRAPH / SOCIAL ====== -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://YOUR_DOMAIN/about.html" />
+<meta property="og:title" content="About Morsa — Our Story in Leith, Edinburgh" />
+<meta property="og:description" content="From kitchen experiments to a neighbourhood staple: Morsa’s journey in Leith." />
+<meta property="og:image" content="https://YOUR_DOMAIN/images/founders.jpg" /> <!-- 1200×630 ideal -->
+<meta property="og:site_name" content="Morsa" />
+<meta property="og:locale" content="en_GB" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About Morsa — Our Story in Leith, Edinburgh" />
+<meta name="twitter:description" content="From kitchen experiments to a neighbourhood staple: Morsa’s journey in Leith." />
+<meta name="twitter:image" content="https://YOUR_DOMAIN/images/founders.jpg" />
+
+<!-- (Optional) favicons if not already included globally -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<meta name="theme-color" content="#6B705C" />
+
+<!-- ====== BREADCRUMB MARKUP ====== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://YOUR_DOMAIN/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Us",
+      "item": "https://YOUR_DOMAIN/about.html"
+    }
+  ]
+}
+</script>
+
+<!-- ====== ABOUT PAGE MARKUP ====== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Morsa",
+  "url": "https://YOUR_DOMAIN/about.html",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Morsa",
+    "url": "https://YOUR_DOMAIN/",
+    "logo": "https://YOUR_DOMAIN/images/Morsa%20W.png",
+    "sameAs": [
+      "https://www.instagram.com/YOUR_HANDLE",
+      "https://www.facebook.com/YOUR_HANDLE",
+      "https://www.tiktok.com/@YOUR_HANDLE"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Leith Walk",
+      "addressLocality": "Edinburgh",
+      "postalCode": "EH6 5BX",
+      "addressCountry": "GB"
+    },
+    "telephone": "+44 131 234 5678"
+  },
+  "primaryImageOfPage": "https://YOUR_DOMAIN/images/founders.jpg",
+  "description": "Our story: focaccia, coffee, and community in Leith."
+}
+</script>
+
+  <title>About Us | Morsa</title>
+
+  <!-- External stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts & Custom Animations -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.85; }
+    }
+
+    .animate-pulse-custom {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .swiper-slide-active img {
+      transform: scale(1.05);
+    }
+    @keyframes slow-spin-float {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(3px, -3px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-2px, 2px) rotate(180deg);
+  }
+  75% {
+    transform: translate(3px, 3px) rotate(270deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(360deg);
+  }
+}
+
+.animate-spin-float {
+  animation: slow-spin-float 20s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.animate-\[wave_6s_ease-in-out_infinite\] {
+  animation: wave 6s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+  </style>
+</head>
+
+<body class="bg-[#fdfaf6] text-[#5D473A]">
+
+<!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-[#6B705C] shadow z-50" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+  
+      <!-- Text-based M logo -->
+      <a href="./index.html" class="hidden md:block pl-2 text-white text-4xl md:text-5xl font-bold leading-none" style="font-family: 'Playfair Display', serif;">
+        M
+      </a>
+  
+      <!-- Mobile Hamburger -->
+      <div class="flex-1 flex justify-end md:hidden">
+        <button @click="open = !open">
+          <span class="text-white text-3xl font-bold" style="font-family: 'Playfair Display', serif;">M</span>
+        </button>
+      </div>
+  
+      <!-- Desktop Nav with Poppins font -->
+      <nav class="hidden md:flex space-x-6 text-[1rem] font-medium text-[#F9F5EF]" style="font-family: 'Poppins', sans-serif;">
+        <a href="about.html" class="hover:text-white transition">Our Story</a>
+        <a href="menu.html" class="hover:text-white transition">Menu</a>
+        <a href="#book" class="hover:text-white transition">Booking</a>
+        <a href="contact.html" class="hover:text-white transition">Contact</a>
+      </nav>
+    </div>
+  
+    <!-- Mobile Nav -->
+    <div 
+      x-show="open" 
+      x-transition:enter="transition ease-out duration-300" 
+      x-transition:enter-start="opacity-0 scale-95" 
+      x-transition:enter-end="opacity-100 scale-100"
+      class="md:hidden px-4 pb-4 bg-[#6B705C] text-[1rem] text-[#F9F5EF]"
+      style="font-family: 'Poppins', sans-serif;"
+    >
+      <a href="about.html" class="block py-2">Our Story</a>
+      <a href="menu.html" class="block py-2">Menu</a>
+      <a href="#book" class="block py-2">Booking</a>
+      <a href="contact.html" class="block py-2">Contact</a>
+    </div>
+  </header>
+  
+  
+
+<!-- Hero Section -->
+<section class="relative min-h-[75vh] flex flex-col justify-center items-center text-center px-6 pt-32 overflow-hidden">
+  
+    <!-- Floating Elements -->
+    <div id="floating-elements" class="absolute inset-0 z-0 pointer-events-none"></div>
+  
+    <!-- Main Text Content -->
+    <h1 
+      class="text-5xl md:text-7xl font-semibold text-[#6B705C] z-10" 
+      style="font-family: 'Playfair Display', serif;"
+      data-aos="fade-down"
+      data-aos-duration="1000"
+    >
+      About Morsa
+    </h1>
+  
+    <p 
+      class="text-lg max-w-2xl mt-4 z-10"
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="1000"
+    >
+      Born in Leith. Baked with care.
+    </p>
+  
+    <a 
+      href="#about-content" 
+      title="Scroll down" 
+      class="mt-14 animate-pulse-custom z-10"
+      data-aos="fade-up"
+      data-aos-delay="400"
+      data-aos-duration="1000"
+    >
+      <div class="relative w-20 h-20 rounded-full bg-[#6B705C] flex items-center justify-center shadow-inner">
+        <div class="absolute w-24 h-24 rounded-full bg-[#f5f2ec] opacity-90 -z-10"></div>
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 9l7 7 7-7" />
+        </svg>
+      </div>
+    </a>
+  </section>
+  
+  
+  
+  
+
+<!-- About Content Section -->
+<section id="about-content" class="bg-white py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+  
+          <!-- Slide 1 -->
+          <div class="swiper-slide flex flex-col md:flex-row gap-10 items-center md:items-start">
+            <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+              <img src="./images/edi.jpg" alt="Edinburgh Café"
+                class="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105" />
+            </div>
+            <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+              <h2 class="text-3xl font-semibold text-[#6B705C] mb-4" style="font-family: 'Playfair Display', serif;">From Dough to Dream</h2>
+              <p class="mb-2">Morsa was born in a Leith kitchen with little more than flour, passion, and a moka pot. What began as an experiment soon became a neighbourhood staple.</p>
+              <p>The goal was simple — to create a space where people felt welcome and left with a full heart (and belly). What followed was a journey of taste, community, and heritage.</p>
+            </div>
+          </div>
+  
+          <!-- Slide 2 -->
+          <div class="swiper-slide flex flex-col md:flex-row gap-10 items-center md:items-start">
+            <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+              <img src="./images/focaccia8.jpg" alt="Focaccia 8"
+                class="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105" />
+            </div>
+            <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+              <h2 class="text-3xl font-semibold text-[#6B705C] mb-4" style="font-family: 'Playfair Display', serif;">Local Love</h2>
+              <p class="mb-2">From simple beginnings, Morsa grew into a beloved café — rooted in warmth, flavour, and soul.</p>
+              <p>Our focus is on quality and connection. Whether it’s a rosemary-topped focaccia or a strong flat white, we put our heart into every detail.</p>
+            </div>
+          </div>
+  
+          <!-- Slide 3 -->
+          <div class="swiper-slide flex flex-col md:flex-row gap-10 items-center md:items-start">
+            <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+              <img src="./images/focaccia9.jpg" alt="Focaccia 9"
+                class="w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105" />
+            </div>
+            <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+              <h2 class="text-3xl font-semibold text-[#6B705C] mb-4" style="font-family: 'Playfair Display', serif;">A Bite of Morsa</h2>
+              <p class="mb-2">Every bite tells a story. We make bread, yes — but also memories, laughter, and comfort.</p>
+              <p>It’s more than focaccia. It’s a feeling that lingers long after your last sip or crumb.</p>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- Meet the Founders Section -->
+<section id="founders" class="bg-white py-24 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+      
+      <!-- Founders Text -->
+      <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+        <h2 class="text-3xl font-semibold text-[#6B705C] mb-4" style="font-family: 'Playfair Display', serif;">
+          Meet the Founders
+        </h2>
+        <p class="mb-4">
+          Morsa didn’t begin in a boardroom — it began with three friends arguing over how crispy focaccia should be and who makes the stronger moka coffee.
+        </p>
+        <p class="mb-4">
+          What started as weekend baking experiments in a Leith kitchen turned into a full-blown flavour obsession. Flour was everywhere. Ideas bounced. Burnt batches happened. But the community grew — and so did the dream.
+        </p>
+        <p class="italic text-[#6B705C]">— The Morsa Founders</p>
+      </div>
+  
+      <!-- Founders Image -->
+      <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+        <img src="./images/founders.jpg" alt="The Founders of Morsa"
+             class="w-full h-auto object-cover" />
+      </div>
+  
+    </div>
+  </section>
+
+  
+  <!-- Timeline Section -->
+<section class="bg-white py-28 px-6 overflow-hidden">
+    <div class="max-w-6xl mx-auto text-center relative">
+      <h2 class="text-3xl font-semibold text-[#6B705C] mb-24" style="font-family: 'Playfair Display', serif;">
+        The Morsa Journey
+      </h2>
+  
+      <!-- Animated Wavy Line -->
+      <svg viewBox="0 0 1440 150" class="absolute left-0 top-40 w-full z-0 animate-[wave_6s_ease-in-out_infinite]">
+        <path fill="none" stroke="#6B705C" stroke-width="3"
+          d="M0,75 C240,25 480,125 720,75 S1200,25 1440,75" />
+      </svg>
+  
+      <!-- Timeline Items (All Above Line) -->
+      <div class="relative z-10 flex flex-col md:flex-row justify-between items-start px-4 md:px-0">
+  
+        <!-- 2019 -->
+        <div class="p-6 bg-[#fdfaf6] shadow-md rounded-xl max-w-xs mx-auto md:mx-0 -mb-24" data-aos="fade-up">
+          <h3 class="text-xl font-semibold text-[#6B705C] mb-2">2019</h3>
+          <p>Three pals. One flat. A wild focaccia experiment begins in Leith.</p>
+        </div>
+  
+        <!-- 2021 -->
+        <div class="p-6 bg-[#fdfaf6] shadow-md rounded-xl max-w-xs mx-auto md:mx-0 -mb-24" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold text-[#6B705C] mb-2">2021</h3>
+          <p>Morsa opens its doors. Locals come for the bread, stay for the stories.</p>
+        </div>
+  
+        <!-- 2024 -->
+        <div class="p-6 bg-[#fdfaf6] shadow-md rounded-xl max-w-xs mx-auto md:mx-0 -mb-24" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="text-xl font-semibold text-[#6B705C] mb-2">2024</h3>
+          <p>Community, creativity, carbs. Morsa becomes a staple in the neighbourhood.</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<section class="bg-[#6B705C] text-white py-20 px-6 text-center" data-aos="fade-up">
+  <h2 class="text-3xl md:text-4xl font-semibold mb-4" style="font-family: 'Playfair Display', serif;">Come Visit Us</h2>
+  <p class="mb-6">Focaccia and coffee await in the heart of Leith.</p>
+  <a href="contact.html" class="inline-block bg-white text-[#6B705C] px-6 py-3 rounded-full font-medium shadow hover:shadow-lg transition transform hover:-translate-y-1">
+    Contact & Location
+  </a>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  AOS.init();
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+    allowTouchMove: true,
+    pagination: {
+      el: null, // disables pagination dots
+    },
+  });
+</script>
+
+<script>
+    const container = document.getElementById("floating-elements");
+    
+    const imageSources = [
+      "./images/rosemary.png",
+      "./images/olive.png",
+      "./images/focaccia4.png",
+      "./images/focaccia6.png"
+    ];
+    
+    const zones = [
+  { xMin: 5, xMax: 45, yMin: 10, yMax: 40 },  // Top-left
+  { xMin: 55, xMax: 95, yMin: 10, yMax: 40 }, // Top-right
+  { xMin: 5, xMax: 45, yMin: 60, yMax: 90 },  // Bottom-left
+  { xMin: 55, xMax: 95, yMin: 60, yMax: 90 }  // Bottom-right
+];
+
+    
+    const totalImages = 20;
+    const perZone = totalImages / zones.length;
+    
+    for (let z = 0; z < zones.length; z++) {
+      const zone = zones[z];
+    
+      for (let i = 0; i < perZone; i++) {
+        const img = document.createElement("img");
+        const srcIndex = Math.floor(Math.random() * imageSources.length);
+        img.src = imageSources[srcIndex];
+        img.alt = imageSources[srcIndex].split('/').pop().split('.')[0];
+        img.className = "absolute w-16 md:w-20 opacity-80 animate-float-rotate animate-spin-float pointer-events-none";
+    
+        const x = Math.random() * (zone.xMax - zone.xMin) + zone.xMin;
+        const y = Math.random() * (zone.yMax - zone.yMin) + zone.yMin;
+    
+        img.style.left = `${x}%`;
+        img.style.top = `${y}%`;
+        img.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 30 - 15}deg)`;
+    
+        container.appendChild(img);
+      }
+    }
+
+    
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    
+  
+  
+</body>
+</html>

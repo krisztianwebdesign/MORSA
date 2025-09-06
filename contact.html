@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- ====== CORE SEO (Contact) ====== -->
+<title>Contact & Reservations — Morsa, Leith</title>
+<meta name="description" content="Contact Morsa in Leith, Edinburgh. Address, phone, email, opening hours, Google Map and online table reservations." />
+<link rel="canonical" href="https://YOUR_DOMAIN/contact.html" />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+<!-- ====== OPEN GRAPH / SOCIAL ====== -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://YOUR_DOMAIN/contact.html" />
+<meta property="og:title" content="Contact & Reservations — Morsa, Leith" />
+<meta property="og:description" content="Find us in Leith, Edinburgh. Questions or bookings? We’d love to hear from you." />
+<meta property="og:image" content="https://YOUR_DOMAIN/images/contact-hero.jpg" /> <!-- 1200×630 recommended -->
+<meta property="og:site_name" content="Morsa" />
+<meta property="og:locale" content="en_GB" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact & Reservations — Morsa, Leith" />
+<meta name="twitter:description" content="Address, hours, Google Map and online table reservations." />
+<meta name="twitter:image" content="https://YOUR_DOMAIN/images/contact-hero.jpg" />
+
+<!-- (Optional) Favicons if not already global -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<meta name="theme-color" content="#6B705C" />
+
+<!-- ====== BREADCRUMBS ====== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://YOUR_DOMAIN/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://YOUR_DOMAIN/contact.html" }
+  ]
+}
+</script>
+
+<!-- ====== CONTACT PAGE STRUCTURED DATA ====== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact & Reservations",
+  "url": "https://YOUR_DOMAIN/contact.html",
+  "mainEntity": {
+    "@type": ["CafeOrCoffeeShop","Bakery"],
+    "name": "Morsa",
+    "url": "https://YOUR_DOMAIN/",
+    "image": "https://YOUR_DOMAIN/images/contact-hero.jpg",
+    "logo": "https://YOUR_DOMAIN/images/Morsa%20W.png",
+    "telephone": "+44 131 234 5678",
+    "email": "hello@morsa.co.uk",
+    "priceRange": "££",
+    "menu": "https://YOUR_DOMAIN/menu.html#menu",
+    "acceptsReservations": true,
+    "sameAs": [
+      "https://www.instagram.com/YOUR_HANDLE",
+      "https://www.facebook.com/YOUR_HANDLE",
+      "https://www.tiktok.com/@YOUR_HANDLE"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Leith Walk",
+      "addressLocality": "Edinburgh",
+      "postalCode": "EH6 5BX",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 55.971964,
+      "longitude": -3.167038
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday",   "opens": "09:00", "closes": "16:00" }
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+44 131 234 5678",
+        "email": "hello@morsa.co.uk",
+        "areaServed": "GB",
+        "availableLanguage": ["en-GB"]
+      }
+    ]
+  }
+}
+</script>
+
+  <title>Contact & Reservations | Morsa</title>
+
+  <!-- Fonts & Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS + Alpine -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <script src="https://unpkg.com/alpinejs" defer></script>
+
+  <style>
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Poppins',sans-serif; }
+
+    /* Olive shadows */
+    .shadow-olive{ box-shadow: 0 10px 28px rgba(107,112,92,.14), 0 2px 8px rgba(107,112,92,.08); }
+    .shadow-olive-strong{ box-shadow: 0 14px 34px rgba(107,112,92,.20), 0 3px 10px rgba(107,112,92,.10); }
+    [x-cloak]{ display:none !important; }
+
+    /* Rosemary floating glow */
+    @keyframes leaf-bob{ 0%,100%{transform:translateY(0) rotate(8deg) scale(1)}50%{transform:translateY(-8px) rotate(10deg) scale(1.03)}}
+    @keyframes leaf-glow{ 0%{filter:drop-shadow(0 6px 12px rgba(107,112,92,.15));opacity:.92}100%{filter:drop-shadow(0 10px 18px rgba(107,112,92,.35));opacity:1}}
+    .rosemary-glow{ animation:leaf-bob 6s ease-in-out infinite, leaf-glow 3s ease-in-out infinite alternate; will-change:transform,filter,opacity; }
+
+    /* Section band + frosted card like About */
+    .menu-band{ background:linear-gradient(180deg,#F2EEE6 0%,#F7F4EE 100%); border-top:1px solid rgba(107,112,92,.12); border-bottom:1px solid rgba(107,112,92,.12); }
+    .menu-card{ background:rgba(255,255,255,.65); border:1px solid rgba(107,112,92,.18); backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px); border-radius:1.25rem; }
+
+    @media (prefers-reduced-motion: reduce){
+      .rosemary-glow{ animation:none !important; }
+    }
+
+    /* Gentle Ken Burns zoom */
+@keyframes kenburns {
+  0%   { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.06) translateY(-2%); }
+}
+.kenburns {
+  animation: kenburns 18s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: reduce){
+  .kenburns { animation: none !important; }
+}
+
+  </style>
+</head>
+<body class="bg-[#F7F4EE] text-[#5D473A]">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-[#6B705C] shadow z-50" x-data="{ open:false }">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./index.html" class="hidden md:block pl-2 text-white text-4xl md:text-5xl font-bold leading-none" style="font-family:'Playfair Display',serif;">M</a>
+      <div class="flex-1 flex justify-end md:hidden">
+        <button @click="open=!open"><span class="text-white text-3xl font-bold" style="font-family:'Playfair Display',serif;">M</span></button>
+      </div>
+      <nav class="hidden md:flex space-x-6 text-[1rem] font-medium text-[#F9F5EF]">
+        <a href="./about.html" class="hover:text-white transition">Our Story</a>
+        <a href="./menu.html" class="hover:text-white transition">Menu</a>
+        <a href="#book" class="hover:text-white transition">Booking</a>
+        <a href="./contact.html" class="hover:text-white transition">Contact</a>
+      </nav>
+    </div>
+    <div x-show="open" x-transition class="md:hidden px-4 pb-4 bg-[#6B705C] text-[1rem] text-[#F9F5EF]">
+      <a href="./about.html" class="block py-2">Our Story</a>
+      <a href="./menu.html" class="block py-2">Menu</a>
+      <a href="#book" class="block py-2">Booking</a>
+      <a href="./contact.html" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+<!-- Hero -->
+<section class="min-h-[55vh] flex flex-col justify-center items-center text-center px-6 pt-36">
+  <div class="flex justify-center mb-6" data-aos="fade-down">
+    <img src="./images/rosemary.png" alt="Rosemary Leaf" class="w-20 md:w-24 rosemary-glow opacity-95 rotate-[8deg]" />
+  </div>
+  <h1 class="text-4xl md:text-6xl font-semibold text-[#6B705C]" style="font-family:'Playfair Display',serif;" data-aos="fade-up">
+    Contact & Reservations
+  </h1>
+  <p class="mt-4 max-w-2xl" data-aos="fade-up" data-aos-delay="150">
+    Questions, bookings, private events — we’d love to hear from you.
+  </p>
+  <div class="mt-8 flex gap-3" data-aos="fade-up" data-aos-delay="250">
+    <a
+      href="#book"
+      @click.prevent="Alpine.store('booking').openModal()"
+      aria-controls="booking-title"
+      class="inline-flex items-center rounded-full px-6 py-3 bg-[#6B705C] text-white shadow-olive hover:shadow-olive-strong hover:brightness-110 transition"
+    >
+      Book a Table
+    </a>
+    <a
+      href="#message"
+      class="inline-flex items-center rounded-full px-6 py-3 bg-white text-[#6B705C] border border-[#6B705C]/30 shadow-olive hover:shadow-olive-strong transition"
+    >
+      Send a Message
+    </a>
+  </div>
+</section>
+
+
+  <!-- Contact Cards -->
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Visit -->
+      <div class="bg-white rounded-2xl border border-[#6B705C]/30 p-6 shadow-olive" data-aos="fade-up">
+        <h3 class="text-xl font-semibold text-[#6B705C]" style="font-family:'Playfair Display',serif;">Visit Us</h3>
+        <p class="mt-2 text-sm">123 Leith Walk, Edinburgh, EH6 5AA</p>
+        <a href="https://maps.google.com/?q=123 Leith Walk, Edinburgh" target="_blank" rel="noopener" class="mt-3 inline-block text-[#6B705C] underline underline-offset-4">Open in Maps</a>
+        <div class="mt-4 text-sm">
+          <p class="font-medium text-[#6B705C]">Opening Hours</p>
+          <ul class="mt-1 space-y-1">
+            <li>Mon–Fri: 8:00–18:00</li>
+            <li>Sat: 9:00–18:00</li>
+            <li>Sun: 9:00–16:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Call / Email -->
+      <div class="bg-white rounded-2xl border border-[#6B705C]/30 p-6 shadow-olive" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-semibold text-[#6B705C]" style="font-family:'Playfair Display',serif;">Say Hello</h3>
+        <p class="mt-2 text-sm">Phone: <a href="tel:+441312345678" class="underline underline-offset-4 text-[#6B705C]">+44 131 234 5678</a></p>
+        <p class="mt-1 text-sm">Email: <a href="mailto:hello@morsa.co.uk" class="underline underline-offset-4 text-[#6B705C]">hello@morsa.co.uk</a></p>
+        <p class="mt-4 text-xs text-gray-500">Allergen or access queries? Please contact us before your visit.</p>
+      </div>
+
+      <!-- Reserve -->
+      <div id="reserve" class="bg-white rounded-2xl border border-[#6B705C]/30 p-6 shadow-olive scroll-mt-32" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-semibold text-[#6B705C]" style="font-family:'Playfair Display',serif;">Reservations</h3>
+        <p class="mt-2 text-sm">Secure your spot in a few clicks.</p>
+        <a
+        href="#book"  
+        @click.prevent="Alpine.store('booking').openModal()"
+        aria-controls="booking-title"
+        class="mt-4 inline-flex items-center rounded-full px-5 py-2.5 bg-[#6B705C] text-white shadow-olive hover:shadow-olive-strong hover:brightness-110 transition"
+        >
+        Book a Table
+        </a>
+        <p class="mt-3 text-xs text-gray-500">Need a group booking? Tell us the details in the form.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Team Photo Band -->
+<section class="py-16 px-4">
+  <figure class="max-w-5xl mx-auto overflow-hidden rounded-2xl border border-[#6B705C]/30 shadow-olive" data-aos="fade-up">
+    <!-- Use your real image here -->
+    <img
+      src="./images/staff.jpg"
+      alt="Smiling baristas at the counter in a cozy, hipster coffee shop"
+      class="w-full h-[320px] md:h-[440px] object-cover kenburns"
+      loading="lazy" decoding="async"
+    />
+  </figure>
+</section>
+
+  <!-- Message Form -->
+  <section id="message" class="menu-band py-16 px-4 scroll-mt-32">
+    <div class="menu-card max-w-4xl mx-auto p-8 md:p-10 shadow-olive" data-aos="fade-up">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center text-[#6B705C]" style="font-family:'Playfair Display',serif;">Send us a message</h2>
+      <p class="mt-2 text-center text-sm">We aim to reply within 1 business day.</p>
+
+      <!-- Form (replace action with your processor: Formspree, Netlify, etc.) -->
+      <form action="https://formspree.io/f/YOUR_ID" method="POST" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Honeypot -->
+        <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off">
+
+        <div>
+          <label class="block text-sm font-medium text-[#6B705C]">Full Name</label>
+          <input required type="text" name="name" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40" placeholder="Your name"/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-[#6B705C]">Email</label>
+          <input required type="email" name="email" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40" placeholder="you@example.com"/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-[#6B705C]">Phone (optional)</label>
+          <input type="tel" name="phone" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40" placeholder="+44 ..."/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-[#6B705C]">Reason</label>
+          <select name="reason" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+            <option>General Enquiry</option>
+            <option>Reservation</option>
+            <option>Private Event</option>
+            <option>Allergen/Access</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-[#6B705C]">Message</label>
+          <textarea required name="message" rows="5" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40" placeholder="How can we help?"></textarea>
+        </div>
+
+        <!-- Optional: preferred date/time -->
+        <div>
+          <label class="block text-sm font-medium text-[#6B705C]">Preferred Date</label>
+          <input type="date" name="date" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40"/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-[#6B705C]">Preferred Time</label>
+          <input type="time" name="time" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40"/>
+        </div>
+
+        <!-- Consent -->
+        <div class="md:col-span-2 flex items-start gap-2 mt-2">
+          <input required id="consent" type="checkbox" class="mt-1">
+          <label for="consent" class="text-xs text-gray-600">I agree to be contacted about my enquiry. See our <a href="./privacy.html" class="underline underline-offset-2 text-[#6B705C]">Privacy Policy</a>.</label>
+        </div>
+
+        <div class="md:col-span-2 flex items-center gap-3 mt-4">
+          <button type="submit" class="inline-flex items-center rounded-full px-6 py-3 bg-[#6B705C] text-white shadow-olive hover:shadow-olive-strong hover:brightness-110 transition">Send Message</button>
+          <p class="text-xs text-gray-500">You’ll also receive a copy of your message by email.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+ <!-- Map -->
+<section class="py-16 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="rounded-2xl overflow-hidden border border-[#6B705C]/30 shadow-olive" data-aos="fade-up">
+      <iframe
+        title="Morsa on Google Maps — Leith, Edinburgh"
+        class="w-full h-[420px] md:h-[480px]"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12719.224846561447!2d-3.1855982975757327!3d55.96790989544905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887b8047c3b7ae1%3A0xf47b5c73152f780e!2sLeith%2C%20Edinburgh%2C%20UK!5e0!3m2!1sen!2shu!4v1757085107866!5m2!1sen!2shu">
+      </iframe>
+    </div>
+</section>
+
+
+  <section id="book" class="py-12 px-4 scroll-mt-32">
+  <div class="max-w-3xl mx-auto text-center border border-[#6B705C]/30 rounded-2xl bg-white/70 backdrop-blur-sm p-8 shadow-olive">
+    <h2 class="text-2xl font-semibold text-[#6B705C]" style="font-family:'Playfair Display',serif;">Book a Table</h2>
+    <p class="mt-2 text-sm">Click the button to open our booking form.</p>
+    <button class="mt-4 inline-flex items-center rounded-full px-6 py-3 bg-[#6B705C] text-white shadow-olive hover:shadow-olive-strong"
+            onclick="Alpine.store('booking').openModal()">
+      Open Booking Form
+    </button>
+    <p class="mt-3 text-xs text-gray-500">If the form doesn’t open, please email <a href="mailto:hello@morsa.co.uk" class="underline text-[#6B705C]">hello@morsa.co.uk</a>.</p>
+  </div>
+</section>
+
+
+<!-- Footer CTA -->
+<section class="bg-[#6B705C] text-white py-16 px-6 text-center">
+  <h2 class="text-3xl md:text-4xl font-semibold mb-3" style="font-family:'Playfair Display',serif;">Come Visit Us</h2>
+  <p class="opacity-90">Focaccia and coffee await in the heart of Leith.</p>
+  <div class="mt-6 flex flex-wrap justify-center gap-3">
+    <a href="./menu.html" class="inline-flex items-center rounded-full px-6 py-3 bg-white text-[#6B705C] shadow-olive hover:shadow-olive-strong transition">View the Menu</a>
+    <a
+      href="#book"
+      @click.prevent="Alpine.store('booking').openModal()"
+      aria-controls="booking-title"
+      class="inline-flex items-center rounded-full px-6 py-3 border border-white/70 text-white hover:bg-white/10 transition"
+    >
+      Book a Table
+    </a>
+  </div>
+</section>
+
+
+  <!-- Booking Modal -->
+<div
+  x-data
+  x-show="$store.booking.open"
+  x-cloak
+  class="fixed inset-0 z-[100] flex items-center justify-center"
+  aria-modal="true" role="dialog" aria-labelledby="booking-title">
+
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/50" @click="$store.booking.closeModal()"></div>
+
+  <!-- Dialog -->
+  <div class="relative max-w-2xl w-[92%] md:w-[720px]
+              bg-white rounded-2xl border border-[#6B705C]/30
+              shadow-olive p-6 md:p-8"
+       @keydown.escape.window="$store.booking.closeModal()"
+       data-aos="fade-up">
+
+    <!-- Header -->
+    <div class="flex items-start justify-between">
+      <div>
+        <h3 id="booking-title" class="text-2xl font-semibold text-[#6B705C]" style="font-family:'Playfair Display',serif;">
+          Book a Table
+        </h3>
+        <p class="text-sm text-gray-600 mt-1">We’ll confirm by email. For same-day large groups, please call us.</p>
+      </div>
+      <button class="text-gray-500 hover:text-gray-700" @click="$store.booking.closeModal()" aria-label="Close booking form">
+        ✕
+      </button>
+    </div>
+
+    <!-- Alerts -->
+    <template x-if="$store.booking.error">
+      <div class="mt-4 rounded-lg border border-red-200 bg-red-50 text-red-700 px-4 py-2 text-sm" x-text="$store.booking.error"></div>
+    </template>
+    <template x-if="$store.booking.success">
+      <div class="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-800 px-4 py-2 text-sm">
+        ✅ Booking request sent! We’ll email a confirmation shortly.
+      </div>
+    </template>
+
+    <!-- Form -->
+    <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4"
+          @submit="$store.booking.submit($event)">
+
+      <!-- Name -->
+      <div>
+        <label class="block text-sm font-medium text-[#6B705C]">Full Name *</label>
+        <input id="booking-name" type="text" x-model="$store.booking.form.name" required
+               class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-medium text-[#6B705C]">Email *</label>
+        <input type="email" x-model="$store.booking.form.email" required
+               class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <label class="block text-sm font-medium text-[#6B705C]">Phone</label>
+        <input type="tel" x-model="$store.booking.form.phone"
+               class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+      </div>
+
+      <!-- Party -->
+      <div>
+        <label class="block text-sm font-medium text-[#6B705C]">Party Size *</label>
+        <input type="number" min="1" max="12" x-model.number="$store.booking.form.party" required
+               class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+        <p class="text-xs text-gray-500 mt-1">For 13+, please email or call.</p>
+      </div>
+
+      <!-- Date -->
+      <div>
+        <label class="block text-sm font-medium text-[#6B705C]">Date *</label>
+        <input type="date" :min="$store.booking.todayStr()" x-model="$store.booking.form.date" required
+               class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+      </div>
+
+      <!-- Time -->
+      <div>
+        <label class="block text-sm font-medium text-[#6B705C]">Time *</label>
+        <select x-model="$store.booking.form.time" required
+                class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+          <option value="" disabled>Select…</option>
+          <!-- 30-min slots 09:00–21:00 (adjust to your hours) -->
+          <template x-for="h in Array.from({length:13},(_,i)=>i+9)">
+            <optgroup :label="(h<10?'0':'')+h+':00 - '+(h+1<10?'0':'')+(h+1)+':00'">
+              <option :value="(h<10?'0':'')+h+':00' " x-text="(h<10?'0':'')+h+':00'"></option>
+              <option :value="(h<10?'0':'')+h+':30' " x-text="(h<10?'0':'')+h+':30'"></option>
+            </optgroup>
+          </template>
+        </select>
+      </div>
+
+      <!-- Occasion -->
+      <div>
+        <label class="block text-sm font-medium text-[#6B705C]">Occasion</label>
+        <select x-model="$store.booking.form.occasion"
+                class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+          <option value="">None</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Business</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <!-- Notes -->
+      <div class="md:col-span-2">
+        <label class="block text-sm font-medium text-[#6B705C]">Notes / Allergens</label>
+        <textarea rows="4" x-model="$store.booking.form.notes"
+                  class="mt-1 w-full rounded-lg border border-[#6B705C]/30 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40"
+                  placeholder="High chair? Wheelchair access? Allergens? Anything we should know."></textarea>
+      </div>
+
+      <!-- Consent -->
+      <div class="md:col-span-2 flex items-start gap-2">
+        <input id="booking-consent" type="checkbox" x-model="$store.booking.form.agree" class="mt-1">
+        <label for="booking-consent" class="text-xs text-gray-600">
+          I agree to be contacted about my booking. See our
+          <a href="./privacy.html" class="underline underline-offset-2 text-[#6B705C]">Privacy Policy</a>.
+        </label>
+      </div>
+
+      <!-- Actions -->
+      <div class="md:col-span-2 mt-2 flex items-center gap-3">
+        <button type="submit"
+                class="inline-flex items-center rounded-full px-6 py-3 bg-[#6B705C] text-white shadow-olive hover:shadow-olive-strong hover:brightness-110 transition disabled:opacity-60"
+                :disabled="$store.booking.loading">
+          <span x-show="!$store.booking.loading">Submit Booking</span>
+          <span x-show="$store.booking.loading">Sending…</span>
+        </button>
+        <button type="button" class="text-sm underline underline-offset-4 text-gray-600 hover:text-gray-800"
+                @click="$store.booking.reset()">Reset form</button>
+      </div>
+    </form>
+
+    <!-- Footer note -->
+    <p class="mt-4 text-xs text-gray-500">
+      By submitting, you’re making a booking request. We’ll confirm by email as soon as we can.
+    </p>
+  </div>
+</div>
+
+
+  <!-- AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once:true, duration:800, easing:'ease-out' });
+  </script>
+  <script>
+  // Turn this on later with your real endpoint (e.g., Formspree)
+  const FORM_ENDPOINT = ""; // e.g., "https://formspree.io/f/XXXXXXX"
+
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('booking', {
+      open: false,
+      loading: false,
+      success: false,
+      error: "",
+      form: {
+        name: "", email: "", phone: "",
+        party: 2, date: "", time: "",
+        occasion: "", notes: "", agree: false,
+      },
+
+      // Helpers
+      todayStr() {
+        const d = new Date();
+        const pad = n => String(n).padStart(2,'0');
+        return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+      },
+
+      reset() {
+        this.loading = false; this.success = false; this.error = "";
+        this.form = { name:"", email:"", phone:"", party:2, date:"", time:"", occasion:"", notes:"", agree:false };
+      },
+
+      openModal() {
+        this.open = true; this.success = false; this.error = "";
+        this.$nextTick(() => {
+          const first = document.querySelector('#booking-name');
+          if (first) first.focus();
+        });
+      },
+
+      closeModal() {
+        this.open = false; this.loading = false;
+      },
+
+      async submit(e) {
+        e?.preventDefault?.();
+        this.error = ""; this.success = false;
+
+        // Basic validation
+        const f = this.form;
+        if (!f.name || !f.email || !f.party || !f.date || !f.time || !f.agree) {
+          this.error = "Please fill all required fields and accept the consent.";
+          return;
+        }
+
+        this.loading = true;
+
+        // If you set FORM_ENDPOINT, this will POST there; otherwise we simulate success.
+        try {
+          if (FORM_ENDPOINT) {
+            const payload = new FormData();
+            Object.entries(f).forEach(([k,v]) => payload.append(k, v));
+            payload.append("_subject", "New Table Booking");
+            const res = await fetch(FORM_ENDPOINT, { method:"POST", body: payload });
+            if (!res.ok) throw new Error("Submission failed");
+          } else {
+            // Demo mode: simulate network
+            await new Promise(r => setTimeout(r, 800));
+          }
+          this.success = true;
+          this.loading = false;
+        } catch (err) {
+          this.loading = false;
+          this.error = "Sorry, something went wrong. Please try again or contact us.";
+        }
+      }
+    });
+
+    // Make any link with href="#book" open the modal instead of scrolling
+    document.querySelectorAll('a[href="#book"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        Alpine.store('booking').openModal();
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

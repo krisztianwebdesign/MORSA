@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morsa</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS (one include only) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <!-- Alpine.js -->
+  <script src="https://unpkg.com/alpinejs" defer></script>
+
+  
+
+  <!-- ====== CORE SEO ====== -->
+<title>Morsa — Focaccia & Coffee in Leith, Edinburgh</title>
+<meta name="description" content="Morsa is a Leith bakery & coffee spot serving slow-fermented focaccia, locally roasted espresso, hot drinks and pastries. Order online or book a table." />
+<link rel="canonical" href="https://YOUR_DOMAIN/" />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+<!-- legacy keyword tag – search engines mostly ignore it, but harmless -->
+<meta name="keywords" content="Leith bakery, focaccia Edinburgh, coffee shop Leith, artisan bread, espresso Edinburgh, cafe near me" />
+
+<!-- ====== OPEN GRAPH / SOCIAL ====== -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://YOUR_DOMAIN/" />
+<meta property="og:title" content="Morsa — Focaccia & Coffee in Leith, Edinburgh" />
+<meta property="og:description" content="Slow-baked focaccia, bold espresso, and small-batch pastries in the heart of Leith." />
+<meta property="og:image" content="https://YOUR_DOMAIN/images/social-hero.jpg" /> <!-- 1200x630 -->
+<meta property="og:site_name" content="Morsa" />
+<meta property="og:locale" content="en_GB" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Morsa — Focaccia & Coffee in Leith, Edinburgh" />
+<meta name="twitter:description" content="Slow-baked focaccia, bold espresso, and small-batch pastries in the heart of Leith." />
+<meta name="twitter:image" content="https://YOUR_DOMAIN/images/social-hero.jpg" />
+
+<!-- ====== FAVICONS / THEME ====== -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<meta name="theme-color" content="#6B705C" />
+
+<!-- ====== PERFORMANCE HINTS ====== -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- If you self-host fonts later, remove the preconnects above -->
+
+<!-- ====== SITEMAP (optional but nice) ====== -->
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://YOUR_DOMAIN/sitemap.xml" />
+
+<!-- ====== STRUCTURED DATA: LocalBusiness (Cafe/Bakery) ====== -->
+<!-- STRUCTURED DATA: LocalBusiness (Cafe/Bakery) -->
+<script id="schema-localbusiness" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["CafeOrCoffeeShop","Bakery"],
+  "name": "Morsa",
+  "url": "https://YOUR_DOMAIN/",
+  "image": [
+    "https://YOUR_DOMAIN/images/social-hero.jpg",
+    "https://YOUR_DOMAIN/images/foccacia1.jpg"
+  ],
+  "logo": "https://YOUR_DOMAIN/images/Morsa%20W.png",
+  "telephone": "+44 131 234 5678",
+  "priceRange": "££",
+  "servesCuisine": ["Italian","Cafe","Bakery"],
+  "acceptsReservations": true,
+  "menu": "https://YOUR_DOMAIN/menu.html#menu",
+  "sameAs": [
+    "https://www.instagram.com/YOUR_HANDLE",
+    "https://www.facebook.com/YOUR_HANDLE",
+    "https://www.tiktok.com/@YOUR_HANDLE"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Leith Walk",
+    "addressLocality": "Edinburgh",
+    "postalCode": "EH6 5BX",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 55.971964,
+    "longitude": -3.167038
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday",   "opens": "09:00", "closes": "16:00" }
+  ]
+}
+</script>
+
+
+
+  <!-- Helpers -->
+  <style>
+    html{scroll-behavior:smooth}
+    body{
+      background: radial-gradient(circle at top, #f9f5ef, #f3eee5);
+      overflow-x: hidden;
+      font-family:'Poppins',sans-serif;
+      color:#5D473A;
+    }
+    [x-cloak]{display:none!important}
+
+    /* Floating images (as before) */
+    .floating-image{
+      position:absolute; width:clamp(50px,7vw,100px); height:auto; opacity:.5;
+      filter:brightness(0) saturate(100%) invert(29%) sepia(15%) saturate(502%) hue-rotate(51deg) brightness(95%) contrast(89%);
+      animation:floatAround var(--float-speed,16s) ease-in-out infinite;
+      transition:transform .4s ease,opacity .3s ease; transform-origin:center;
+      pointer-events:none;
+    }
+    .floating-image:hover{transform:scale(1.2) rotate(10deg); opacity:.9}
+    @keyframes floatAround{
+      0%{transform:translate(0,0) rotate(0)}25%{transform:translate(20px,-30px) rotate(45deg)}
+      50%{transform:translate(-20px,20px) rotate(180deg)}75%{transform:translate(25px,10px) rotate(315deg)}
+      100%{transform:translate(0,0) rotate(360deg)}
+    }
+
+    /* Rosemary soft glow */
+    @keyframes softGlow{
+      0%,100%{opacity:.95; transform:scale(1) rotate(8deg); filter:drop-shadow(0 0 4px #6B705C55)}
+      50%{opacity:1; transform:scale(1.08) rotate(8deg); filter:drop-shadow(0 0 10px #6B705Caa)}
+    }
+    .rosemary-glow{animation:softGlow 3s ease-in-out infinite}
+
+    /* Small pulse for CTAs */
+    @keyframes pulse-slow{
+      0%,100%{box-shadow:0 0 0 0 rgba(107,112,92,.4)}
+      50%{box-shadow:0 0 0 10px rgba(107,112,92,0)}
+    }
+    .animate-pulse-slow{animation:pulse-slow 2.5s infinite}
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Images (moved into body) -->
+  <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+    <img src="./images/focaccia4.png" class="floating-image" style="top:5%; left:3%;">
+    <img src="./images/focaccia5.png" class="floating-image" style="top:12%; left:50%;">
+    <img src="./images/focaccia7.png" class="floating-image" style="top:22%; left:80%;">
+    <img src="./images/focaccia5.png" class="floating-image" style="top:30%; left:15%;">
+    <img src="./images/focaccia4.png" class="floating-image" style="top:40%; right:5%;">
+    <img src="./images/focaccia7.png" class="floating-image" style="top:48%; left:33%;">
+    <img src="./images/focaccia5.png" class="floating-image" style="top:55%; right:20%;">
+    <img src="./images/focaccia7.png" class="floating-image" style="top:65%; left:8%;">
+    <img src="./images/focaccia4.png" class="floating-image" style="top:70%; right:30%;">
+    <img src="./images/focaccia5.png" class="floating-image" style="top:76%; left:60%;">
+    <img src="./images/focaccia7.png" class="floating-image" style="top:80%; right:10%;">
+    <img src="./images/focaccia4.png" class="floating-image" style="top:85%; left:45%;">
+    <img src="./images/focaccia7.png" class="floating-image" style="top:90%; right:50%;">
+    <img src="./images/focaccia5.png" class="floating-image" style="top:92%; left:12%;">
+  </div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-[#6B705C] shadow z-50" x-data="{open:false}">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="./index.html" class="hidden md:block pl-6">
+        <img src="./images/Morsa W.png" alt="Morsa Logo" class="w-52 h-auto object-contain" style="max-height:100px;">
+      </a>
+      <div class="flex-1 flex justify md:hidden">
+        <button @click="open=!open" class="focus:outline-none" aria-label="Toggle menu">
+          <img src="./images/Morsa W.png" alt="Menu" class="w-20 h-20 object-contain opacity-90 hover:opacity-100 transition duration-300">
+        </button>
+      </div>
+      <nav class="hidden md:flex space-x-8 text-[1.125rem] tracking-wide font-medium text-[#F9F5EF]">
+        <a href="./about.html" class="hover:text-white transition">Our Story</a>
+        <!-- go straight to menu section on the menu page -->
+        <a href="./menu.html#menu" class="hover:text-white transition">Menu</a>
+        <!-- booking opens modal via global handler -->
+        <a href="#book" class="hover:text-white transition">Booking</a>
+        <a href="./contact.html" class="hover:text-white transition">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Mobile -->
+    <div x-show="open" x-transition class="md:hidden px-4 pb-4 bg-[#6B705C] text-[1.125rem] font-medium text-[#F9F5EF]">
+      <a href="./about.html" class="block py-2">Our Story</a>
+      <a href="./menu.html#menu" class="block py-2">Menu</a>
+      <a href="#book" class="block py-2">Booking</a>
+      <a href="./contact.html" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="h-screen flex flex-col justify-center items-center text-center px-6 pt-24" data-aos="fade-up">
+    <h1 class="text-6xl md:text-9xl mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Morsa</h1>
+    <p class="uppercase tracking-widest text-sm mb-6 text-[#6B705C]">Focaccia & Coffee</p>
+    <!-- View Menu -> menu.html#menu -->
+    <a href="./menu.html#menu"
+       class="inline-block bg-[#6B705C] text-[#F9F5EF] px-6 py-3 rounded-full text-sm md:text-base font-medium hover:bg-[#5a6353] transition-transform duration-300 hover:scale-105 shadow-md">
+      View Menu
+    </a>
+  </section>
+
+  <!-- About -->
+  <section class="max-w-3xl mx-auto text-center py-20 px-6 relative" data-aos="fade-up">
+    <div class="flex justify-center mb-6">
+      <img src="./images/rosemary.png" alt="Rosemary Leaf" class="w-24 md:w-28 rosemary-glow opacity-95 rotate-[8deg]"/>
+    </div>
+    <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-[#6B705C]" style="font-family:'Playfair Display',serif;">About Morsa</h2>
+    <p class="text-lg leading-relaxed mb-6">At Morsa, we slow bake every loaf and pour every shot with intention. From our hand-stretched focaccia infused with bold flavours to our locally roasted espresso, everything we serve is rooted in comfort, craft, and calm.</p>
+    <a href="./about.html" class="inline-block bg-[#6B705C] text-[#F9F5EF] px-6 py-3 rounded-full hover:bg-[#5a6353] transition">Read More</a>
+  </section>
+
+  <!-- Visual + CTA -->
+  <section class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-6xl mx-auto py-20 px-6 relative">
+    <div class="w-full md:w-1/2" data-aos="fade-right">
+      <img src="./images/foccacia1.jpg" alt="Focaccia close-up" class="rounded-xl shadow-2xl transition duration-500 hover:scale-105">
+    </div>
+
+    <div class="w-full md:w-1/2 text-center md:text-left" x-data data-aos="fade-left">
+      <div class="flex justify-center md:justify-start mb-4">
+        <img src="./images/focaccia4.png" alt="Focaccia Icon" class="w-24 md:w-28 opacity-95 rotate-[5deg]" style="filter:drop-shadow(0 0 10px rgba(107,112,92,.5));"/>
+      </div>
+
+      <h3 class="text-2xl font-semibold mb-4 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Crafted for Comfort</h3>
+      <p class="text-lg leading-relaxed mb-6">Our dough rises slow and bakes golden in the morning light. We pair hand-made focaccia with bold espresso to bring you the warmth of a southern Italian bakery — right here in Leith.</p>
+
+      <!-- Book -> opens modal -->
+      <a href="#book"
+         @click.prevent="Alpine.store('booking').openModal()"
+         onclick="event.preventDefault(); window.Alpine?.store('booking')?.openModal();"
+         aria-controls="booking-title"
+         class="inline-block bg-[#6B705C] text-[#F9F5EF] px-6 py-3 rounded-full text-sm md:text-base font-medium hover:bg-[#5a6353] transition-transform duration-300 hover:scale-105 shadow-md">
+        Book a Table
+      </a>
+    </div>
+  </section>
+
+  <!-- What Makes Us Special -->
+  <section class="relative bg-[#f7f3ed] py-20 px-6 overflow-hidden">
+    <div class="max-w-6xl mx-auto text-center relative z-10">
+      <h2 class="text-3xl font-semibold mb-14 text-[#6B705C]" style="font-family:'Playfair Display',serif;" data-aos="fade-up">What Makes Us Special</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-md p-6 transition hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-20 h-20 mx-auto mb-4"><img src="./images/fresh.png" alt class="w-full h-full object-contain"></div>
+          <h3 class="text-xl font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Freshly Baked Daily</h3>
+          <p class="text-sm">Our dough is proofed overnight and baked every morning.</p>
+        </div>
+
+        <div class="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-md p-6 transition hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-20 h-20 mx-auto mb-4"><img src="./images/thistle.png" alt class="w-full h-full object-contain"></div>
+          <h3 class="text-xl font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Roasted in Edinburgh</h3>
+          <p class="text-sm">Partnered with a local roaster to deliver bold, balanced espresso.</p>
+        </div>
+
+        <div class="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-md p-6 transition hover:-translate-y-2 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-20 h-20 mx-auto mb-4"><img src="./images/Morsa B.png" alt class="w-full h-full object-contain"></div>
+          <h3 class="text-xl font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Morsa in Leith</h3>
+          <p class="text-sm">Rooted in local community, born in the heart of Edinburgh.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Favourites -->
+  <section class="bg-[#F9F5EF] py-24 px-6 relative">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-12 text-[#6B705C]" style="font-family:'Playfair Display',serif;" data-aos="fade-up">Our Favourites</h2>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-white/40 backdrop-blur-md border border-[#e5ded6] shadow-xl rounded-2xl p-6 transition duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/foccacia2.jpeg" alt class="rounded-xl mb-4 h-40 w-full object-cover">
+          <h3 class="text-xl font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Tomato & Herb Focaccia</h3>
+          <p class="text-sm mb-3">Baked fresh daily, topped with slow-roasted cherry tomatoes, rosemary, and a touch of sea salt.</p>
+          <span class="text-[#6B705C] font-semibold">£4.80</span>
+        </div>
+
+        <div class="bg-white/40 backdrop-blur-md border border-[#e5ded6] shadow-xl rounded-2xl p-6 transition duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+          <img src="images/esspresso.jpg" alt class="rounded-xl mb-4 h-40 w-full object-cover">
+          <h3 class="text-xl font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Double Espresso</h3>
+          <p class="text-sm mb-3">Locally roasted and perfectly extracted — bold, rich, and smooth with a nutty finish.</p>
+          <span class="text-[#6B705C] font-semibold">£2.60</span>
+        </div>
+
+        <div class="bg-white/40 backdrop-blur-md border border-[#e5ded6] shadow-xl rounded-2xl p-6 transition duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+          <img src="images/cake.jpg" alt class="rounded-xl mb-4 h-40 w-full object-cover">
+          <h3 class="text-xl font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Seasonal Sweet</h3>
+          <p class="text-sm mb-3">A rotating sweet treat — from pistachio-stuffed buns to orange blossom cake. Always made with love.</p>
+          <span class="text-[#6B705C] font-semibold">£3.20</span>
+        </div>
+      </div>
+
+      <!-- See full menu -> menu.html#menu -->
+      <div class="mt-12" data-aos="fade-up" data-aos-delay="400">
+        <a href="./menu.html#menu"
+           class="inline-block bg-[#6B705C] text-white font-semibold py-3 px-6 rounded-full shadow hover:bg-[#5c6451] transition">
+          See Full Menu
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-20 px-4 md:px-6 text-center bg-[#fdfaf6]">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-semibold text-[#6B705C] mb-4" style="font-family:'Playfair Display',serif;" data-aos="fade-up">Get in Touch</h2>
+      <p class="mb-6 text-lg" data-aos="fade-up" data-aos-delay="100">Questions, orders, or just want to say hello? We'd love to hear from you.</p>
+      <div class="mb-8 space-y-2 text-center text-base" data-aos="fade-up" data-aos-delay="200">
+        <p><strong>Email:</strong> hello@morsa.co.uk</p>
+        <p><strong>Phone:</strong> +44 1234 567890</p>
+        <p><strong>Address:</strong> 123 Leith Walk, Edinburgh EH6 5BX</p>
+      </div>
+      <form class="grid gap-4 sm:grid-cols-2 mb-12" data-aos="fade-up" data-aos-delay="300">
+        <input type="text" placeholder="Name" class="p-3 rounded border border-gray-300"/>
+        <input type="email" placeholder="Email" class="p-3 rounded border border-gray-300"/>
+        <textarea placeholder="Message" class="sm:col-span-2 p-3 rounded border border-gray-300 h-40"></textarea>
+        <div class="sm:col-span-2 text-center">
+          <button type="submit" class="px-5 py-2 rounded-full bg-[#6B705C] hover:bg-[#5a6353] text-white font-medium shadow-md transition w-auto animate-pulse-slow">Send Message</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="w-full max-w-6xl mx-auto h-[450px] rounded-2xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="400">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.4039181125346!2d-3.167038!3d55.971964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887c78775c83b05%3A0x6e432d23f7b33a99!2sLeith%20Walk%2C%20Edinburgh%20EH6%205BX%2C%20UK!5e0!3m2!1sen!2suk!4v1688317294393!5m2!1sen!2suk"
+              width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#f5f2ec] text-[#5D473A] pt-16 pb-12 mt-20 border-t border-[#e4e0da] rounded-t-2xl shadow-inner">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="flex flex-wrap md:flex-nowrap justify-between gap-12 text-center md:text-left">
+        <div class="flex-1 min-w-[250px]" data-aos="fade-up">
+          <h3 class="text-2xl font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Morsa</h3>
+          <p class="text-sm text-[#6b665f] mb-4">Focaccia & Coffee, crafted with love in Edinburgh.</p>
+          <div class="flex gap-6 mt-3 justify-center md:justify-start">
+            <a href="https://www.instagram.com/" aria-label="Instagram" class="hover:text-[#6B705C] transition">Instagram</a>
+            <a href="https://www.facebook.com/" aria-label="Facebook" class="hover:text-[#6B705C] transition">Facebook</a>
+            <a href="https://www.tiktok.com/" aria-label="TikTok" class="hover:text-[#6B705C] transition">TikTok</a>
+          </div>
+        </div>
+        <div class="flex-1" data-aos="fade-up" data-aos-delay="100">
+          <h4 class="text-lg font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Quick Links</h4>
+          <ul class="space-y-1 text-sm">
+            <li><a href="./about.html" class="hover:text-[#6B705C]">Our Story</a></li>
+            <li><a href="./menu.html#menu" class="hover:text-[#6B705C]">Menu</a></li>
+            <li><a href="#book" class="hover:text-[#6B705C]">Booking</a></li>
+            <li><a href="./contact.html" class="hover:text-[#6B705C]">Contact</a></li>
+          </ul>
+        </div>
+        <div class="flex-1" data-aos="fade-up" data-aos-delay="200">
+          <h4 class="text-lg font-semibold mb-2 text-[#6B705C]" style="font-family:'Playfair Display',serif;">Visit Us</h4>
+          <p class="text-sm text-[#6b665f]">123 Leith Walk<br>Edinburgh EH6 5BX</p>
+          <p class="mt-1 text-sm text-[#6b665f]">Open daily: 8am – 6pm</p>
+        </div>
+      </div>
+      <div class="text-center mt-12 text-xs text-[#a6a29a]" id="year">&copy; 2025 Morsa. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="hidden fixed bottom-6 right-6 w-12 h-12 rounded-full bg-[#6B705C] text-white text-xl font-bold flex items-center justify-center shadow-lg hover:bg-[#5a5f4e] transition-all animate-pulse-slow z-50" title="Back to Top">↑</button>
+
+  <!-- Booking Modal -->
+  <div x-data x-show="$store.booking.open" x-cloak
+       class="fixed inset-0 z-[100] flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <div class="absolute inset-0 bg-black/50" @click="$store.booking.closeModal()"></div>
+    <div class="relative max-w-2xl w-[92%] md:w-[720px] bg-white rounded-2xl border border-[#6B705C]/30 shadow p-6 md:p-8"
+         @keydown.escape.window="$store.booking.closeModal()">
+      <div class="flex items-start justify-between">
+        <div>
+          <h3 id="booking-title" class="text-2xl font-semibold text-[#6B705C]" style="font-family:'Playfair Display',serif;">Book a Table</h3>
+          <p class="text-sm text-gray-600 mt-1">We’ll confirm by email. For same-day large groups, please call us.</p>
+        </div>
+        <button class="text-gray-500 hover:text-gray-700" @click="$store.booking.closeModal()" aria-label="Close">✕</button>
+      </div>
+
+      <template x-if="$store.booking.error">
+        <div class="mt-4 rounded-lg border border-red-200 bg-red-50 text-red-700 px-4 py-2 text-sm" x-text="$store.booking.error"></div>
+      </template>
+      <template x-if="$store.booking.success">
+        <div class="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 text-emerald-800 px-4 py-2 text-sm">✅ Booking request sent! We’ll email a confirmation shortly.</div>
+      </template>
+
+      <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" @submit="$store.booking.submit($event)">
+        <div><label class="block text-sm font-medium text-[#6B705C]">Full Name *</label>
+          <input id="booking-name" type="text" x-model="$store.booking.form.name" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+        </div>
+        <div><label class="block text-sm font-medium text-[#6B705C]">Email *</label>
+          <input type="email" x-model="$store.booking.form.email" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+        </div>
+        <div><label class="block text-sm font-medium text-[#6B705C]">Phone</label>
+          <input type="tel" x-model="$store.booking.form.phone" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+        </div>
+        <div><label class="block text-sm font-medium text-[#6B705C]">Party Size *</label>
+          <input type="number" min="1" max="12" x-model.number="$store.booking.form.party" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+          <p class="text-xs text-gray-500 mt-1">For 13+, please email or call.</p>
+        </div>
+        <div><label class="block text-sm font-medium text-[#6B705C]">Date *</label>
+          <input type="date" :min="$store.booking.todayStr()" x-model="$store.booking.form.date" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+        </div>
+        <div><label class="block text-sm font-medium text-[#6B705C]">Time *</label>
+          <select x-model="$store.booking.form.time" required class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+            <option value="" disabled>Select…</option>
+            <template x-for="h in Array.from({length:13},(_,i)=>i+9)">
+              <optgroup :label="(h<10?'0':'')+h+':00 - '+(h+1<10?'0':'')+(h+1)+':00'">
+                <option :value="(h<10?'0':'')+h+':00'" x-text="(h<10?'0':'')+h+':00'"></option>
+                <option :value="(h<10?'0':'')+h+':30'" x-text="(h<10?'0':'')+h+':30'"></option>
+              </optgroup>
+            </template>
+          </select>
+        </div>
+        <div><label class="block text-sm font-medium text-[#6B705C]">Occasion</label>
+          <select x-model="$store.booking.form.occasion" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40">
+            <option value="">None</option><option>Birthday</option><option>Anniversary</option><option>Business</option><option>Other</option>
+          </select>
+        </div>
+        <div class="md:col-span-2"><label class="block text-sm font-medium text-[#6B705C]">Notes / Allergens</label>
+          <textarea rows="4" x-model="$store.booking.form.notes" class="mt-1 w-full rounded-lg border border-[#6B705C]/30 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6B705C]/40" placeholder="High chair? Wheelchair access? Allergens?"></textarea>
+        </div>
+        <div class="md:col-span-2 flex items-start gap-2">
+          <input id="booking-consent" type="checkbox" x-model="$store.booking.form.agree" class="mt-1" required>
+          <label for="booking-consent" class="text-xs text-gray-600">I agree to be contacted about my booking. See our <a href="./privacy.html" class="underline underline-offset-2 text-[#6B705C]">Privacy Policy</a>.</label>
+        </div>
+        <div class="md:col-span-2 mt-2 flex items-center gap-3">
+          <button type="submit" class="inline-flex items-center rounded-full px-6 py-3 bg-[#6B705C] text-white shadow hover:brightness-110 transition disabled:opacity-60" :disabled="$store.booking.loading">
+            <span x-show="!$store.booking.loading">Submit Booking</span>
+            <span x-show="$store.booking.loading">Sending…</span>
+          </button>
+          <button type="button" class="text-sm underline underline-offset-4 text-gray-600 hover:text-gray-800" @click="$store.booking.reset()">Reset form</button>
+        </div>
+      </form>
+
+      <p class="mt-4 text-xs text-gray-500">By submitting, you’re making a booking request. We’ll confirm by email as soon as we can.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({duration:800, once:false, mirror:true});</script>
+
+  <!-- Back to top + current year -->
+  <script>
+    (function(){
+      const topBtn=document.getElementById('backToTop');
+      window.addEventListener('scroll',()=>{ topBtn.classList.toggle('hidden', window.scrollY < 300); });
+      topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+      const y=document.getElementById('year'); if(y) y.innerHTML='&copy; '+new Date().getFullYear()+' Morsa. All rights reserved.';
+    })();
+  </script>
+
+  <!-- Booking store + site-wide handler -->
+  <script>
+    const FORM_ENDPOINT = ""; // add your Formspree/Netlify endpoint later
+
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('booking', {
+        open:false, loading:false, success:false, error:"",
+        form:{name:"",email:"",phone:"",party:2,date:"",time:"",occasion:"",notes:"",agree:false},
+
+        todayStr(){ const d=new Date(), p=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`; },
+        openModal(){ this.open=true; this.success=false; this.error=""; requestAnimationFrame(()=>document.querySelector('#booking-name')?.focus()); },
+        closeModal(){ this.open=false; this.loading=false; },
+        reset(){ this.loading=false; this.success=false; this.error=""; this.form={name:"",email:"",phone:"",party:2,date:"",time:"",occasion:"",notes:"",agree:false}; },
+
+        async submit(e){
+          e.preventDefault(); this.error=""; this.success=false;
+          const f=this.form;
+          if(!f.name||!f.email||!f.party||!f.date||!f.time||!f.agree){ this.error="Please complete required fields."; return; }
+          this.loading=true;
+          try{
+            if(FORM_ENDPOINT){
+              const fd=new FormData(); Object.entries(f).forEach(([k,v])=>fd.append(k,v));
+              fd.append("_subject","New Table Booking");
+              const res=await fetch(FORM_ENDPOINT,{method:"POST",body:fd});
+              if(!res.ok) throw new Error();
+            }else{
+              await new Promise(r=>setTimeout(r,800)); // demo success
+            }
+            this.success=true; this.loading=false;
+          }catch(err){ this.loading=false; this.error="Sorry, something went wrong. Please try again."; }
+        }
+      });
+
+      // Any link to #book opens the modal
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href="#book"]');
+        if(!a) return;
+        e.preventDefault();
+        Alpine.store('booking').openModal();
+      });
+    });
+  </script>
+</body>
+</html>
